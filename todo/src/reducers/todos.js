@@ -33,7 +33,7 @@ const todos = (state = [], action) => {
       ]
     // 全局切换 todos
     case 'TOGGLE_TODO':
-      // 遍历 state 数组，为对应 todo 进行状态切换
+      // 遍历 state 数组，为每个 todo 进行状态切换
       return state.map(
         t => todo(t, action)
       )

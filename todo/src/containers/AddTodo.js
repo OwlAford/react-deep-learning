@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
 let AddTodo = ({ dispatch }) => {
+  // 通过ref获取节点，并保存在 input
   let input
 
   return (
@@ -25,6 +26,9 @@ let AddTodo = ({ dispatch }) => {
     </div>
   )
 }
+
+// 将组件和 Redux store 进行连接
+// 连接操作不会改变原来的组件类，反而返回一个新的已与 Redux store 连接的组件类
 AddTodo = connect()(AddTodo)
 
 export default AddTodo

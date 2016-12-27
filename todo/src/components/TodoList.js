@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
 import Todo from './Todo'
 
+// 木偶组件，注入数据和方法
+// 列表每一个条目都需要一个唯一的键值 key
 const TodoList = ({ todos, onTodoClick }) => (
   <ul>
     {todos.map(todo =>
