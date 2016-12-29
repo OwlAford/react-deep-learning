@@ -24,7 +24,14 @@ const mapStateToProps = state => ({
 
 // 哪些 action 创建函数是我们想要通过 props 获取的？
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(TodoActions, dispatch)
+  // bindActionCreators 把 action creators 转成拥有同名 keys 的对象，
+  // 但使用 dispatch 把每个 action creator 包围起来，
+  // 这样可以直接调用它们。
+  // 使用 bindActionCreators 的场景是
+  // 当你需要把 action creator 往下传到一个组件上，
+  // 却不想让这个组件觉察到 Redux 的存在，
+  // 而且不希望把 Redux store 或 dispatch 传给它
+  actions: bindActionCreators(TodoActions, dispatch)
 })
 
 export default connect(

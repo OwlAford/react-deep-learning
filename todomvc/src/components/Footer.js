@@ -18,9 +18,10 @@ export default class Footer extends Component {
   }
 
   renderTodoCount() {
+    // 根据激活条目数判断字母是否该为为复数
     const { activeCount } = this.props
     const itemWord = activeCount === 1 ? 'item' : 'items'
-
+    // 待完成条目
     return (
       <span className="todo-count">
         <strong>{activeCount || 'No'}</strong> {itemWord} left
@@ -30,8 +31,8 @@ export default class Footer extends Component {
 
   renderFilterLink(filter) {
     const title = FILTER_TITLES[filter]
+    // 因为filter名称冲突，故为filter设置别名
     const { filter: selectedFilter, onShow } = this.props
-
     return (
       <a className={classnames({ selected: filter === selectedFilter })}
          style={{ cursor: 'pointer' }}
@@ -43,6 +44,7 @@ export default class Footer extends Component {
 
   renderClearButton() {
     const { completedCount, onClearCompleted } = this.props
+    // 若完成数大于0，才渲染清除已完成按钮
     if (completedCount > 0) {
       return (
         <button className="clear-completed"
