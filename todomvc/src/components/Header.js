@@ -6,6 +6,7 @@ export default class Header extends Component {
     addTodo: PropTypes.func.isRequired
   }
 
+  // 文本长度不为空时添加todo
   handleSave = text => {
     if (text.length !== 0) {
       this.props.addTodo(text)
